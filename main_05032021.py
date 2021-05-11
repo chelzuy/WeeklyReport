@@ -28,10 +28,6 @@ for value in column_description:
             new_column_description.append(value)
         elif "Device not responding: Probably down or busy" in value:
             new_column_description.append(value)
-        # elif "Discards rate" or "Errors rate" or "Memory Usage" or "Disk Utilization" in value:
-        #     # DO NOT DELETE THE SPACE BEFORE ' is'
-        #     value_split = value.split(" is")
-        #     new_column_description.append(value_split[0])
         elif "Discards rate" in value:
                 value_split = value.split(" is") # DO NOT DELETE THE SPACE BEFORE ' is'
                 new_column_description.append(value_split[0])
