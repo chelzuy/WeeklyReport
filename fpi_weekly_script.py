@@ -28,6 +28,26 @@ for value in column_description:
             new_column_description.append(value)
         elif "Device not responding: Probably down or busy" in value:
             new_column_description.append(value)
+        elif "SUSE_SystemUptime" in value:
+            # DO NOT DELETE THE SPACE BEFORE ' is'
+            value_split = value.split(" is")
+            new_column_description.append(value_split[0])
+        elif "SystemUptime" in value:
+            # DO NOT DELETE THE SPACE BEFORE ' is'
+            value_split = value.split(" is")
+            new_column_description.append(value_split[0])
+        elif "SystemUptime_SNMP" in value:
+            # DO NOT DELETE THE SPACE BEFORE ' is'
+            value_split = value.split(" is")
+            new_column_description.append(value_split[0])
+        elif "WIN_UPTIME" in value:
+            # DO NOT DELETE THE SPACE BEFORE ' is'
+            value_split = value.split(" is")
+            new_column_description.append(value_split[0])
+        elif "Windows_SYSUPTIME" in value:
+            # DO NOT DELETE THE SPACE BEFORE ' is'
+            value_split = value.split(" is")
+            new_column_description.append(value_split[0])
         elif "Discards rate" in value:
             # DO NOT DELETE THE SPACE BEFORE ' is'
             value_split = value.split(" is")
