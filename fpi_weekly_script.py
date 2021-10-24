@@ -87,10 +87,13 @@ occurence = data_df2.groupby(
 data_column = occurence.sort_values(
     "Alarm Message", inplace=False, ascending=True)
 
+#Sort out Device name 
+data_column_device = data_column.sort_values("Device",ascending=True)
+
 #=================== CELL BORDER and ALIGN CENTER ===================#
 
 writer = pd.ExcelWriter("new_file.xlsx", engine='xlsxwriter')
-data_column.to_excel(writer, sheet_name="Sheet1", index=False)
+data_column_device.to_excel(writer, sheet_name="Sheet1", index=False)
 workbook = writer.book
 worksheet = writer.sheets["Sheet1"]
 
@@ -102,7 +105,7 @@ border_format = workbook.add_format(
      "align": "vcenter"}
 )
 # workbook.add_format({'align': 'vcenter'})
-worksheet.conditional_format(xlsxwriter.utility.xl_range(0, 0, len(data_column), (len(data_column.columns)-1)),
+worksheet.conditional_format(xlsxwriter.utility.xl_range(0, 0, len(data_column_device), (len(data_column_device.columns)-1)),
                              {'type': 'no_errors', 'format': border_format})
 
 data_format = workbook.add_format()
